@@ -64,6 +64,7 @@ button {
     transform: translate(-50%, -50%);
     font-size: 4rem;
     flex-wrap: wrap;
+    text-align: center;
 }
 
 .exp {
