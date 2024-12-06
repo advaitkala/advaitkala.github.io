@@ -2,7 +2,16 @@ body {
     font-family: "Lexend", sans-serif;
     margin: 0;
     padding: 0;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    box-sizing: border-box;
 }
+
+* {
+    box-sizing: border-box;
+}
+
 button {
     all: unset;
     cursor: pointer;
@@ -12,8 +21,9 @@ button {
 }
 
 .headbar {
+    width: 90%; /* Responsive width */
+    max-width: 300px; /* Maximum width */
     height: 40px;
-    width: 300px; /* Fixed width */
     display: flex;
     align-items: center;
     position: absolute;
@@ -24,7 +34,7 @@ button {
     background: rgba(232, 229, 228, 0.5);
     border-radius: 100px;
     padding: 0 10px;
-    box-sizing: border-box;
+    z-index: 10;
 }
 
 .headitems {
@@ -34,7 +44,7 @@ button {
     width: 100%;
     font-size: 0.9rem;
     font-weight: 280;
-    flex-wrap: nowrap; /* Prevent wrapping */
+    flex-wrap: nowrap;
 }
 
 .headitems button {
@@ -43,12 +53,11 @@ button {
     color: black;
     padding: 5px 12px;
     border-radius: 100px;
-    box-sizing: border-box;
     border: 3px solid transparent;
     transition: all 0.3s ease;
-    white-space: nowrap; /* Prevents wrapping */
-    overflow: hidden; /* Ensures no overflow */
-    text-overflow: ellipsis; /* Adds ellipsis if text overflows */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .headitems button:hover {
@@ -61,34 +70,45 @@ button {
     position: absolute;
     align-items: center;
     justify-content: center;
-    width: 70vw;
-    top: 33%;
+    width: 90%; /* Responsive width */
+    max-width: 1200px; /* Maximum width */
+    top: 50%; /* Centered vertically */
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -80%); /* Ensures true centering */
     font-size: 4rem;
-    flex-wrap: nowrap;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
     text-align: center;
+    z-index: 5;
 }
-/*.exp-container {*/
-/*    display: flex;*/
-/*    justify-content: center;*/
-/*    align-items: center;*/
-/*    top: 25%;*/
-/*    left: 50%;*/
-/*    transform: translate(-50%, -50%);*/
-/*    position: relative;*/
-/*}*/
+
+.exp-container {
+    width: 100%;
+    position: absolute;
+    top: 55vh; /* Adjusted to work with centered main content */
+    left: 0;
+}
+
 .exp {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 10px;
-    margin-top: 20px;
-    position: absolute;
-    top: 43%;
+    align-items: center;
+    top: 50%;
     left: 50%;
-    transform: translate(-50%, 350%);
+    transform: translate(0%, 100%);
+    gap: 10px;
     width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.exptitle {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    text-align: center;
 }
 
 .explang {
@@ -106,49 +126,45 @@ button {
     border-color: #c0c0c0;
 }
 
-.exptitle {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -250%);
-    font-size: 1.5rem;
-    text-align: center;
-}
 @media (max-width: 1200px) {
     .main {
-        font-size: 4rem;
-        width: 80%;
+        font-size: 3rem;
+        top: 38%;
+    }
+    .exp-container{
+        top: 40vh;
     }
 }
 
 @media (max-width: 768px) {
     .main {
-        font-size: 2.95rem;
-        width: 90%;
-        flex-direction: column;
+        font-size: 2.5rem;
+        top: 30%;
     }
     .explang {
         font-size: 0.8rem;
+    }
+    .exp-container{
+        top: 30vh;
     }
 }
 
 @media (max-width: 480px) {
     .main {
-        font-size: 2.2rem;
-        top: 25%;
+        font-size: 2rem;
+        top: 28%; /* Adjusted vertical positioning */
+    }
+    .headbar {
+        top: 3vh; /* Reduced top spacing for mobile */
+    }
+    .exp-container {
+        top: 30vh; /* Adjusted for mobile */
     }
     .explang {
         padding: 6px 8px;
-        font-size: 0.5rem;
+        font-size: 0.7rem;
     }
-    .headitems{
+    .headitems {
         font-size: 0.8rem;
     }
-    .exp{
-        top: 33%;
-    }
 }
-
