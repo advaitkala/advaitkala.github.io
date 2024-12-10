@@ -4,8 +4,13 @@ body {
     padding: 0;
     min-height: 100vh;
     position: relative;
-    overflow-x: hidden; /* Prevent horizontal scrolling */
+    overflow-x: hidden;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem; /* Consistent gap between elements */
+    padding: 3rem 0; /* Add padding to ensure content doesn't touch edges */
 }
 
 * {
@@ -21,15 +26,11 @@ button {
 }
 
 .headbar {
-    width: 90%; /* Responsive width */
-    max-width: 300px; /* Maximum width */
+    width: 90%;
+    max-width: 300px;
     height: 40px;
     display: flex;
     align-items: center;
-    position: absolute;
-    top: 5vh;
-    left: 50%;
-    transform: translateX(-50%);
     border: 2px solid #ffffff;
     background: rgba(232, 229, 228, 0.5);
     border-radius: 100px;
@@ -67,25 +68,19 @@ button {
 
 .main {
     display: flex;
-    position: absolute;
     align-items: center;
     justify-content: center;
-    width: 90%; /* Responsive width */
-    max-width: 1200px; /* Maximum width */
-    top: 50%; /* Centered vertically */
-    left: 50%;
-    transform: translate(-50%, -80%); /* Ensures true centering */
+    width: 90%;
+    max-width: 1200px;
     font-size: 4rem;
-    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    flex-wrap: wrap;
     text-align: center;
     z-index: 5;
 }
 
 .exp-container {
     width: 100%;
-    position: absolute;
-    top: 55vh; /* Adjusted to work with centered main content */
-    left: 0;
+    max-width: 800px;
 }
 
 .exp {
@@ -93,12 +88,8 @@ button {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    top: 50%;
-    left: 50%;
-    transform: translate(0%, 100%);
     gap: 10px;
-    width: 90%;
-    max-width: 800px;
+    width: 100%;
     margin: 0 auto;
 }
 
@@ -129,36 +120,21 @@ button {
 @media (max-width: 1200px) {
     .main {
         font-size: 3rem;
-        top: 38%;
-    }
-    .exp-container{
-        top: 40vh;
     }
 }
 
 @media (max-width: 768px) {
     .main {
         font-size: 2.5rem;
-        top: 30%;
     }
     .explang {
         font-size: 0.8rem;
-    }
-    .exp-container{
-        top: 30vh;
     }
 }
 
 @media (max-width: 480px) {
     .main {
         font-size: 2rem;
-        top: 28%; /* Adjusted vertical positioning */
-    }
-    .headbar {
-        top: 3vh; /* Reduced top spacing for mobile */
-    }
-    .exp-container {
-        top: 30vh; /* Adjusted for mobile */
     }
     .explang {
         padding: 6px 8px;
